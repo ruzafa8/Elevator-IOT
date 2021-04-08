@@ -1,0 +1,48 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+elevator-app/node_modules
+elevator-app/.pnp
+elevator-app/.pnp.js
+
+# testing
+elevator-app/coverage
+
+# production
+elevator-app/build
+
+# misc
+elevator-app/.DS_Store
+elevator-app/.env.local
+elevator-app/.env.development.local
+elevator-app/.env.test.local
+elevator-app/.env.production.local
+
+elevator-app/npm-debug.log*
+elevator-app/yarn-debug.log*
+elevator-app/yarn-error.log*
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+elevator-sim/node_modules
+elevator-sim/.pnp
+elevator-sim/.pnp.js
+
+# testing
+elevator-sim/coverage
+
+# production
+elevator-sim/build
+
+# misc
+elevator-sim.DS_Store
+elevator-sim.env.local
+elevator-sim.env.development.local
+elevator-sim.env.test.local
+elevator-sim.env.production.local
+
+elevator-simnpm-debug.log*
+elevator-simyarn-debug.log*
+elevator-simyarn-error.log*
