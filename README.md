@@ -1,11 +1,68 @@
-# Getting Started with Create React App
+# Smart IoT City
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a some services whose aims are propose protocols to adapt some technologies of daily use to a situation of pandemic.
 
-## Available Scripts
+Those services are connected to different IoT devices: 
+ - Elevator
+ - Traffic Lights
 
-In the project directory, you can run:
+And they will use ACME nodes, implementation of the oneM2M protocol.
 
+## Available Services
+
+In the project directory, you can see:
+
+### Elevator Service
+
+This services provides a REST API with the following structure:
+
+### `POST /elevator`
+```javascript
+{
+  floors: Array<Number>;
+  endpoint: String;
+}
+```
+This petition creates an instance of the elevator on the server. You must indicate the IP of the elevator and the floors which it has got. It will, internally generate an OTP for the elevator.
+
+It will return the id:
+```javascript
+{
+  id: Number;
+}
+```
+
+### `GET /elevator/:id`
+Returns the floors of the elevator.
+```javascript
+{
+  floors: Array<Number>;
+}
+```
+
+### `POST /elevator/:id/access`
+```javascript
+{
+  otp: String;
+}
+```
+The petition to ask access to the elevator. The otp must be the same that the one on the server.
+If it is the same will give you back a token and the OTP will change, and if the OTP is not the same, it will give you back a 403 error.
+```javascript
+{
+  token: String;
+}
+```
+### `POST /elevator/move`
+```javascript
+{
+  floor: Number;
+}
+```
+Must contain the Authentication header with a valid token. It will tell the elevator to go to the floor specified if the token is valid.
+
+
+-------------------------------------------------------------------------
 ### `yarn start`
 
 Runs the app in the development mode.\
